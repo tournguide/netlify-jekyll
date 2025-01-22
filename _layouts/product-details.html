@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <main>
+        {% include header.html %}
+        <h1>{{ page.title }}</h1>
+        <img src="{{ page.image }}" alt="{{ page.title }}">
+        <p>{{ page.description }}</p>
+        <p><strong>Price:</strong> {{ page.price }}</p>
+        <a href="/products/">Back to Product List</a>
+        {% include footer.html %}
+    </main>
+</body>
+
+</html>

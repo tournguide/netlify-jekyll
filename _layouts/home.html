@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <main>
+  {% include header.html %}
+  <h1>Welcome to {{ site.title }}</h1>
+
+  
+  <section class="featured-products">
+    <!-- <h2>Products for {{ "now" | date: "%B" }}</h2> -->
+    <h2>Products of Month</h2>
+    <div class="product-list">
+        {% assign current_month = "now" | date: "%B" %}
+        {% for product in site.products %}
+            {% if product.months contains current_month %}
+            <!-- <div class="product-item">
+                <a href="{{ product.url | relative_url }}">{{ product.title }}</a>
+            </div> -->
+
+
+            <div class="product-item">
+                <img src="{{ product.image }}" alt="{{ product.title }}">
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.description }}</p>
+                <p class="price">{{ product.price }}</p>
+                <a href="{{ product.url }}">View Details</a>
+              </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+  </section>
+
+
+
+  <section class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="product-list">
+      {% for product in site.products %}
+        {% if product.featured %}
+          <div class="product-item">
+            <img src="{{ product.image }}" alt="{{ product.title }}">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.description }}</p>
+            <p class="price">{{ product.price }}</p>
+            <a href="{{ product.url }}">View Details</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  
+  {% include footer.html %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <main>
+  {% include header.html %}
+  <h1>All Products</h1>
+  <div class="product-list">
+    {% for product in site.products %}
+    <div class="product-item">
+        <a href="{{ product.url }}">
+          <img src="{{ product.image }}" alt="{{ product.title }}">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.price }}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+  {% include footer.html %}
+  </main>
+</body>
+</html>

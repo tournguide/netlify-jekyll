@@ -1,0 +1,26 @@
+<header>
+  <h1>{{ site.title }}</h1>
+
+  <nav>
+    <ul>
+        {% for item in site.menu %}
+          <li class="{% if page.url == item.url or page.url == item.url | append: "/" %}active{% endif %}">
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% if item.title == "Products" %}
+            <ul class="submenu">
+              {% for product in site.products %}
+                <li class="{% if page.url == product.url %}active{% endif %}">
+                  <a href="{{ product.url | relative_url }}">{{ product.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          
+          </li>
+        {% endfor %}
+      </ul>
+      
+  </nav>
+  
+  
+</header>
