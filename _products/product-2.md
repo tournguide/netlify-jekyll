@@ -21,14 +21,14 @@ description: |-
 
     list content list content list content list content
 
-
-
-
-
   1. list content list content list content list content\
      elfoojff
 price: '123'
 image: /images/dest2.jpg
+gallery:
+  - image: /images/dest1.jpg
+  - image: /images/dest2.jpg
+  - image: /images/dest3.jpg
 featured: true
 months:
   - january
