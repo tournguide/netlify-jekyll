@@ -79,19 +79,3 @@ menu:
   - title: "Contact"
     url: "/contact/"
 
-# Pagination (optional, if you're using pagination for product listing)
-paginate: 10
-paginate_path: "/products/page:num/"
-
-
-
-menu:
-  - title: "Home"
-    url: "/"
-  - title: "About"
-    url: "/about/"
-  - title: "Products"
-    url: "/products/"
-  - title: "Contact"
-    url: "/contact/"
-
