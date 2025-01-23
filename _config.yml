@@ -68,6 +68,14 @@ collections:
     output: true  # Allow pages to be generated for products
     permalink: "/products/:title/"  # Defines the URL structure for each product page
 
+# Default front matter configuration
+defaults:
+  - scope:
+      path: ""  # Empty path applies to the entire site
+      type: "products"  # Applies only to the `products` collection
+    values:
+      layout: product-details
+
 # Menu configuration
 menu:
   - title: "Home"
