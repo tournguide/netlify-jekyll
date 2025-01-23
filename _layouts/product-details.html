@@ -11,7 +11,11 @@
         {% include header.html %}
         <h1>{{ page.title }}</h1>
         <img src="{{ page.image }}" alt="{{ page.title }}">
-        {{ page.description }}
+<!--         <p>{{ page.description }}</p> -->
+
+        <div class="product-description">
+            {{ page.description | markdownify }}
+        </div>
         <p><strong>Price:</strong> {{ page.price }}</p>
         <a href="/products/">Back to Product List</a>
         {% include footer.html %}
