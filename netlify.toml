@@ -1,0 +1,15 @@
+[build]
+  base = ""
+  publish = "_site"
+  command = "bundle exec jekyll build"
+
+[context.production.environment]
+  RUBY_VERSION = "3.3.7"
+  JEKYLL_ENV = "production"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+
