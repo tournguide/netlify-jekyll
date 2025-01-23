@@ -13,9 +13,18 @@
         <img src="{{ page.image }}" alt="{{ page.title }}">
 <!--         <p>{{ page.description }}</p> -->
 
+        {% if page.description %}
         <div class="product-description">
-            {{ page.description | markdownify }}
-        </div>
+                {{ page.description | markdownify }}
+            </div>
+        {% endif %}
+        {% if page.gallery %}
+            <div class="product-gallery">
+                {% for item in page.gallery %}
+                    <img src="{{ item.image }}" alt="{{ page.title }}" />
+                {% endfor %}
+            </div>
+        {% endif %}
         <p><strong>Price:</strong> {{ page.price }}</p>
         <a href="/products/">Back to Product List</a>
         {% include footer.html %}
