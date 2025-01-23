@@ -1,9 +1,13 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: tournguide/netlify-jekyll # Update this with your actual GitHub username and repo
+  branch: main # The branch where the content is located
+  oauth:
+    client_id: Ov23liG3Z1XAJPhn8YSs  # From the OAuth App you created
+    client_secret: f6e87feaf936c63b3b80314de4df9e288af5167c  # From the OAuth App you created
 
-media_folder: "static/images"
-public_folder: "/images"
+media_folder: "static/images" # Media folder location for images
+public_folder: "/images" # Public folder for assets
 
 collections:
   - name: "products"
@@ -13,9 +17,10 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Product Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Price", name: "price", widget: "string" }
       - { label: "Product Image", name: "image", widget: "image", required: false }
+      - { name: "gallery", label: "Gallery", widget: "list", required: false, allow_add: true, fields: [{ name: "image", label: "Image", widget: "image" }] }
       - { label: "Featured", name: "featured", widget: "boolean" }
       - { label: "Months Available", name: "months", widget: "list" }
       - { label: "URL Slug", name: "url", widget: "string" }
