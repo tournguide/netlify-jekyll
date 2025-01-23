@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: tournguide/netlify-jekyll # Update this with your actual GitHub username and repo
+  repo: https://github.com/tournguide/netlify-jekyll # Update this with your actual GitHub username and repo
   branch: main # The branch where the content is located
   oauth:
     client_id: Ov23liG3Z1XAJPhn8YSs  # From the OAuth App you created
