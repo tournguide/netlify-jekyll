@@ -1,4 +1,5 @@
 ---
+layout: product-details
 title: product-2
 description: '5:09 desc'
 price: '123'
