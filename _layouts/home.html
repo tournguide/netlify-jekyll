@@ -9,10 +9,11 @@
   {% include header.html %}
   <h1>Welcome to {{ site.title }}</h1>
 
- <section class="months-avaiable">
+<section class="months-products">
   <h2>Products for {{ "now" | date: "%B" }}</h2>
   <div class="product-list">
-    {% assign current_month = "now" | date: "%B" %}
+    {% assign current_month = "now" | date: "%B" | downcase %}  <!-- Get current month in lowercase to match the keys -->
+
     {% assign has_products_for_current_month = false %}
 
     {% for product in site.products %}
@@ -27,9 +28,12 @@
         </div>
       {% endif %}
     {% endfor %}
+
+    {% if has_products_for_current_month == false %}
+      <p>No products available for {{ current_month | capitalize }}.</p>
+    {% endif %}
   </div>
 </section>
-
 
 
       
