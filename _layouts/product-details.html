@@ -25,13 +25,26 @@
         {% endif %}
         <p><strong>Price:</strong> {{ page.price }}</p>
 
-         {% if page.availability %}
+<!--          {% if page.availability %}
           <div class="available-months">
             <strong>Available Months:</strong>
             {{page.availability}}
           </div>
         {% endif %}
+ -->
 
+        {% if page.availability %}
+          <div class="available-months">
+            <strong>Available Months:</strong>
+            <ul>
+              {% for month in page.availability %}
+                {% if page.availability[month[0]] == true %}
+                  <li>{{ month[0] | capitalize }}</li> <!-- month[0] is the key, e.g., "january" -->
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
 
 
        
