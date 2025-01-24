@@ -25,13 +25,13 @@
         {% endif %}
         <p><strong>Price:</strong> {{ page.price }}</p>
 
-      {% if page.availability %}
+      {% if product.availability %}
           <div class="available-months">
               <strong>Available Months:</strong>
               <ul>
-                  {% for month, available in page.availability %}
+                  {% for month, available in product.availability %}
                       {% if available == true %}
-                          <li>{{ month }}</li>
+                          <li>{{ month | capitalize }}</li>  <!-- Capitalize month name for better display -->
                       {% endif %}
                   {% endfor %}
               </ul>
