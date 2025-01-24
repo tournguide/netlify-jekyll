@@ -13,16 +13,14 @@
   <label for="month-filter">Month</label>
   <select id="month-filter">
     <option value="all">All</option>
-    {% assign month_names = "January,February,March,April,May,June,July,August,September,October,November,December"}
-
-      {% for i in (0..11) %}
-       
-          <option value="{{ month_names[i] | downcase }}">{{ month_names[i] }}</option>
-       
-      {% endfor %}
+    {% assign month_names = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
     
+    {% for month in month_names %}
+      <option value="{{ month | downcase }}">{{ month }}</option>
+    {% endfor %}
   </select>
 </div>
+
 
 
 
