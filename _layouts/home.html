@@ -9,7 +9,7 @@
   {% include header.html %}
   <h1>Welcome to {{ site.title }}</h1>
 
-{% assign current_month = "now" | date: "%B" %}
+{% assign current_month = "now" | date: "%B" | downcase %}
 {% assign has_products_for_current_month = false %}
 
 {% for product in site.products %}
