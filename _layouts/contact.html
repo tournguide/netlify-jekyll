@@ -42,6 +42,20 @@
 
 
   {% include footer.html %}
+      
   </main>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function (event) {
+      // Check if honeypot field is filled (indicating a bot)
+      var honeypot = document.getElementById('honeypot').value;
+      if (honeypot !== '') {
+        // If honeypot is filled, prevent form submission (bot)
+        event.preventDefault();
+        alert('Your submission looks like spam.');
+      }
+    });
+  </script>
+
 </body>
 </html>
