@@ -28,7 +28,6 @@
         <div class="available-months">
             <strong>Available Months:</strong>
             <ul>
-                {% assign months = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
                 {% for month in months %}
                     {% if product.availability[month | downcase] %}
                         <li>{{ month }}</li>
