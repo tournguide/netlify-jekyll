@@ -31,7 +31,7 @@ gallery:
   - image: /images/dest3.jpg
 featured: false
 availability:
-  january: true
+  january: false
 url: /product-2
 ---
 
