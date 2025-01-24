@@ -29,8 +29,8 @@
           <div class="available-months">
               <strong>Available Months:</strong>
               <ul>
-                  {% for month in product.availability %}
-                      {% if month == true %}
+                  {% for month, available in product.availability %}
+                      {% if available == true %}
                           <li>{{ month }}</li>
                       {% endif %}
                   {% endfor %}
