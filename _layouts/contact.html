@@ -16,11 +16,11 @@
     </div>
     <div>
       <label for="whatsapp">Whatsapp no.:</label>
-      <input type="text" id="whatsapp" name="whatsapp">
+      <input type="text" id="whatsapp" name="whatsapp" inputmode="numeric" pattern="\d{10}" title="Please enter a valid 10-digit number">
     </div>
-     <div>
+    <div>
       <label for="phone">Phone:</label>
-      <input type="text" id="phone" name="phone" required>
+      <input type="text" id="phone" name="phone" required inputmode="numeric" pattern="\d{10}" title="Please enter a valid 10-digit number">
     </div>
     <div>
       <label for="email">Email:</label>
@@ -34,6 +34,7 @@
       <button type="submit">Send</button>
     </div>
   </form>
+
 
 
   {% include footer.html %}
