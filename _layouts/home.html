@@ -9,7 +9,7 @@
   {% include header.html %}
   <h1>Welcome to {{ site.title }}</h1>
 
- <section class="months-products">
+ <section class="months-avaiable">
   <h2>Products for {{ "now" | date: "%B" }}</h2>
   <div class="product-list">
     {% assign current_month = "now" | date: "%B" %}
@@ -27,10 +27,6 @@
         </div>
       {% endif %}
     {% endfor %}
-
-    {% if has_products_for_current_month == false %}
-      <p>No products available for {{ current_month }}.</p>
-    {% endif %}
   </div>
 </section>
 
