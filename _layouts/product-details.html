@@ -11,8 +11,6 @@
         {% include header.html %}
         <h1>{{ page.title }}</h1>
         <img src="{{ page.image }}" alt="{{ page.title }}">
-<!--         <p>{{ page.description }}</p> -->
-
         {% if page.description %}
         <div class="product-description">
                 {{ page.description | markdownify }}
@@ -26,6 +24,19 @@
             </div>
         {% endif %}
         <p><strong>Price:</strong> {{ page.price }}</p>
+
+        <div class="available-months">
+            <strong>Available Months:</strong>
+            <ul>
+                {% assign months = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
+                {% for month in months %}
+                    {% if product.availability[month | downcase] %}
+                        <li>{{ month }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
        
         <a href="/products/">Back to Product List</a>
         {% include footer.html %}
