@@ -29,12 +29,11 @@
           <div class="available-months">
             <strong>Available Months:</strong>
             <ul>
-              {% for itembomb in page.availability %}
-                {{itembomb}}
-                {% assign month = itembomb[0] %} <!-- First element is the month -->
-                {% assign status = itembomb[1] %} <!-- Second element is the status (true/false) -->
-                {% if status == true %}
-                  <li>{{ month | capitalize }}</li> <!-- Display only months with status true -->
+              {% for item in page.availability %}
+                {% assign month = item[0] %} <!-- First element is the month -->
+                {% assign availability = item[1] %} <!-- Second element is the availability (true/false) -->
+                {% if availability == true %}
+                  <li>{{ month | capitalize }}</li> <!-- Display only months with availability true -->
                 {% endif %}
               {% endfor %}
             </ul>
