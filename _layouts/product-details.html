@@ -38,7 +38,7 @@
                   Month: {{ month | capitalize }} | Status: {{ status }}
                 </li>
 
-                        {% if status != false %}
+                        {% if status != "false" %}
                   <li>{{ month | capitalize }}</li>
                 {% endif %}
               {% endfor %}
