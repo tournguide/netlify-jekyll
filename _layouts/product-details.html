@@ -25,7 +25,7 @@
         {% endif %}
         <p><strong>Price:</strong> {{ page.price }}</p>
 
-        {% if page.availability %}
+<!--         {% if page.availability %}
           <div class="available-months">
             <strong>Available Months:</strong>
             <ul>
@@ -38,7 +38,37 @@
               {% endfor %}
             </ul>
           </div>
+        {% endif %} -->
+
+
+
+        {% if page.availability %}
+          {% assign has_available_month = false %} <!-- Initialize a flag -->
+        
+          <!-- Check if at least one month is available -->
+          {% for item in page.availability %}
+            {% if item[1] == true %}
+              {% assign has_available_month = true %}
+            {% endif %}
+          {% endfor %}
+        
+          <!-- Only render the div if at least one month is available -->
+          {% if has_available_month %}
+            <div class="available-months">
+              <strong>Available Months:</strong>
+              <ul>
+                {% for item in page.availability %}
+                  {% assign month = item[0] %} <!-- First element is the month -->
+                  {% assign availability = item[1] %} <!-- Second element is the availability (true/false) -->
+                  {% if availability == true %}
+                    <li>{{ month | capitalize }}</li> <!-- Display only months with availability true -->
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
         {% endif %}
+
         
         <a href="/products/">Back to Product List</a>
         {% include footer.html %}
