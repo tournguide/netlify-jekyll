@@ -29,9 +29,10 @@
           <div class="available-months">
             <strong>Available Months:</strong>
             <ul>
-              {% for item in page.availability %}
-                {% assign month = item[0] %} <!-- First element is the month -->
-                {% assign status = item[1] %} <!-- Second element is the status (true/false) -->
+              {% for itembomb in page.availability %}
+                {{itembomb}}
+                {% assign month = itembomb[0] %} <!-- First element is the month -->
+                {% assign status = itembomb[1] %} <!-- Second element is the status (true/false) -->
                 {% if status == true %}
                   <li>{{ month | capitalize }}</li> <!-- Display only months with status true -->
                 {% endif %}
