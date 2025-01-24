@@ -16,9 +16,9 @@
     {% assign month_names = "January,February,March,April,May,June,July,August,September,October,November,December"}
 
       {% for i in (0..11) %}
-        {% if product.availability[month_names[i]] == true %}
+       
           <option value="{{ month_names[i] | downcase }}">{{ month_names[i] }}</option>
-        {% endif %}
+       
       {% endfor %}
     
   </select>
