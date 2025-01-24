@@ -26,7 +26,11 @@
         <p><strong>Price:</strong> {{ page.price }}</p>
 
       {% if page.availability %}
-         <div class="available-months"></div>
+         <div class="available-months">
+              {% for month, available in page.availability %}
+             {{ month}}
+                 {% endfor %}
+         </div>
         {% endif %}
 
        
