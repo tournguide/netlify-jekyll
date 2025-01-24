@@ -7,7 +7,7 @@ backend:
     client_secret: f6e87feaf936c63b3b80314de4df9e288af5167c  # From the OAuth App you created
 
 media_folder: "static/images" # Media folder location for images
-public_folder: "images" # Public folder for assets
+public_folder: "/images" # Public folder for assets
 
 collections:
   - name: "products"
