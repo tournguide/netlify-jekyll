@@ -32,7 +32,7 @@
             <strong>Available Months:</strong>
             <ul>
               {% for item in page.availability %}
-                {% assign upcasser = item %}
+                {% assign upcasser = item | capitalize %}
                 {{upcasser}}
 <!--                 {% assign month = item | split: TRUE | first | split: FALSE | first %}
                 {% assign status = item | split: month | last %}
