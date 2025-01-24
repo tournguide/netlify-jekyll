@@ -9,21 +9,6 @@
   {% include header.html %}
   <h1>All Products</h1>
 
-      <div class="filter">
-  <label for="month-filter">Month</label>
-  <select id="month-filter">
-    <option value="all">All</option>
-    {% assign months = site.products | map: 'availability' %}
-    {% assign month_names = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
-    {% for product in site.products %}
-      {% for i in (0..11) %}
-        {% if product.availability[month_names[i]] == true %}
-          <option value="{{ month_names[i] | downcase }}">{{ month_names[i] }}</option>
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-  </select>
-</div>
 
 
 
