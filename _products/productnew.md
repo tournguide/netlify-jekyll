@@ -2,7 +2,7 @@
 title: product-1
 description: '5:09 desc'
 price: '123'
-image: ''
+image: /images/dest1.jpg
 featured: true
 months:
   - january
