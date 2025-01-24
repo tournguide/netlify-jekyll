@@ -8,28 +8,17 @@
     <main>
   {% include header.html %}
   <h1>Contact Us</h1>
- <form name="contact" method="POST" data-netlify="true" action="/thank-you" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="contact">
-    <div style="display: none;">
-      <label for="bot-field">Don’t fill this out:</label>
-      <input type="text" id="bot-field" name="bot-field">
-    </div>
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div>
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-    <div>
-      <button type="submit">Send</button>
-    </div>
-  </form>
+ <form name="contact" netlify>
+  <p>
+    <label>Name <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>Email <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 
   {% include footer.html %}
   </main>
