@@ -33,16 +33,21 @@
         {% endif %}
  -->
 
-        {% if page.availability %}
+       {% if page.availability %}
           <div class="available-months">
             <strong>Available Months:</strong>
             <ul>
-              {% for monthss in page.availability %}
-               {{monthss}}
+              {% for month in page.availability %}
+                {% assign month_name = month | split: "true" | first %}
+                {% assign is_available = month | split: month_name | last %}
+                {% if is_available == "true" %}
+                  <li>{{ month_name | capitalize }}</li>
+                {% endif %}
               {% endfor %}
             </ul>
           </div>
         {% endif %}
+
 
 
        
