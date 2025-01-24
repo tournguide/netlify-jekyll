@@ -37,10 +37,8 @@
           <div class="available-months">
             <strong>Available Months:</strong>
             <ul>
-              {% for month in page.availability %}
-                {% if page.availability[month[0]] == true %}
-                  <li>{{ month[0] | capitalize }}</li> <!-- month[0] is the key, e.g., "january" -->
-                {% endif %}
+              {% for monthss in page.availability %}
+               {{monthss}}
               {% endfor %}
             </ul>
           </div>
