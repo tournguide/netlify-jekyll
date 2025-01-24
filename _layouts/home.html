@@ -9,59 +9,26 @@
   {% include header.html %}
   <h1>Welcome to {{ site.title }}</h1>
 
-  
-{% assign current_month = "now" | date: "%B" %}
-{% assign has_products_for_current_month = false %}
-
-{% for product in site.products %}
-  {% if product.availability[current_month] == true %}
-    {% assign has_products_for_current_month = true %}
-    {% break %}
-  {% endif %}
-{% endfor %}
-
-{% if has_products_for_current_month %}
-  <section class="featured-products">
-    <h2>Products for {{ current_month }}</h2>
-    <div class="product-list">
-      {% for product in site.products %}
-        {% if product.availability[current_month] == true %}
-          <div class="product-item">
-            <img src="{{ product.image }}" alt="{{ product.title }}">
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.description }}</p>
-            <p class="price">{{ product.price }}</p>
-            <a href="{{ product.url }}">View Details</a>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </section>
-{% endif %}
-
-
-
-    <div class="product-list">
-    {% assign current_month = "now" | date: "%B" %}  <!-- Get current month name (e.g., "January") -->
-
+  <section class="months-products">
+  <h2>Products for {{ "now" | date: "%B" }}</h2>
+  <div class="product-list">
+    {% assign current_month = "now" | date: "%B" %}
     {% for product in site.products %}
-        {% if product.months[current_month] == true %}  <!-- Check if the current month is available for this product -->
-        
+      {% if product.availability[current_month] == true %}
         <div class="product-item">
-            <img src="{{ product.image | relative_url }}" alt="{{ product.title }}">
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.description }}</p>
-            <p class="price">{{ product.price }}</p>
-            <a href="{{ product.url | relative_url }}">View Details</a>
+          <img src="{{ product.image }}" alt="{{ product.title }}">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.description }}</p>
+          <p class="price">{{ product.price }}</p>
+          <a href="{{ product.url }}">View Details</a>
         </div>
-        
-        {% endif %}
+      {% endif %}
     {% endfor %}
-</div>
+  </div>
+</section>
 
-  </section>
 
-
+      
 
   <section class="featured-products">
     <h2>Featured Products</h2>
