@@ -21,7 +21,7 @@
 
 {% if has_products_for_current_month %}
   <section class="months-products featured-products">
-    <h2>Products for {{ current_month }}</h2>
+    <h2>Products for {{ "now" | date: "%B" }}</h2>
     <div class="product-list">
       {% for product in site.products %}
         {% if product.availability[current_month] == true %}
