@@ -25,11 +25,11 @@
         {% endif %}
         <p><strong>Price:</strong> {{ page.price }}</p>
 
-       {% if product.availability %}
+      {% if page.availability %}
           <div class="available-months">
               <strong>Available Months:</strong>
               <ul>
-                  {% for month, available in product.availability %}
+                  {% for month, available in page.availability %}
                       {% if available == true %}
                           <li>{{ month }}</li>
                       {% endif %}
@@ -37,7 +37,6 @@
               </ul>
           </div>
         {% endif %}
-
 
        
         <a href="/products/">Back to Product List</a>
