@@ -26,6 +26,11 @@
             </div>
         {% endif %}
         <p><strong>Price:</strong> {{ page.price }}</p>
+        {% for month, available in page.months %}
+          {% if available %}
+            <p>{{ month }} is available.</p>
+          {% endif %}
+        {% endfor %}
         <a href="/products/">Back to Product List</a>
         {% include footer.html %}
     </main>
