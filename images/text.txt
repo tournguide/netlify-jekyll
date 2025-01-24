@@ -1,1 +1,0 @@
-i am in git images/ok.txt
