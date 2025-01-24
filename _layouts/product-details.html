@@ -31,15 +31,16 @@
           <div class="available-months">
             <strong>Available Months:</strong>
             <ul>
-              {% for item | capitalize  in page.availability %}
-                {{item}}
-                {% assign month = item | split: TRUE | first | split: FALSE | first %}
+              {% for item in page.availability %}
+                {% assign upcasser = item %}
+                {{upcasser}}
+<!--                 {% assign month = item | split: TRUE | first | split: FALSE | first %}
                 {% assign status = item | split: month | last %}
 
                     {% if status == TRUE %}
                       <li>{{ month | capitalize }}</li>
                     {% endif %}
-                
+                 -->
               {% endfor %}
             </ul>
           </div>
