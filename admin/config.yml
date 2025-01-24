@@ -9,6 +9,7 @@ backend:
 media_folder: "static/images" # Media folder location for images
 public_folder: "/images" # Public folder for assets
 
+
 collections:
   - name: "products"
     label: "Products"
@@ -20,16 +21,79 @@ collections:
       - { label: "Description", name: "description", widget: "markdown" }
       - { label: "Price", name: "price", widget: "string" }
       - { label: "Product Image", name: "image", widget: "image", required: false }
-      - { name: "gallery", label: "Gallery", widget: "list", required: false, allow_add: true, fields: [{ name: "image", label: "Image", widget: "image" }] }
+      - name: "gallery"
+        label: "Gallery"
+        widget: "list"
+        required: false
+        allow_add: true
+        fields:
+          - { name: "image", label: "Image", widget: "image" }
       - { label: "Featured", name: "featured", widget: "boolean" }
-      - { label: "Months Available", name: "months", widget: "list" }
+      - label: "Available Months"
+        name: "availability"
+        widget: "object"
+        fields:
+          - label: "January"
+            name: "january"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "February"
+            name: "february"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "March"
+            name: "march"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "April"
+            name: "april"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "May"
+            name: "may"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "June"
+            name: "june"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "July"
+            name: "july"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "August"
+            name: "august"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "September"
+            name: "september"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "October"
+            name: "october"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "November"
+            name: "november"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "December"
+            name: "december"
+            widget: "boolean"
+            default: false
+            required: false
+
       - { label: "URL Slug", name: "url", widget: "string" }
 
-  - name: "pages"
-    label: "Pages"
-    folder: "_pages"
-    create: true
-    slug: "{{title}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+
