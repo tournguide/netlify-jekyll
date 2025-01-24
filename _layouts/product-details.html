@@ -26,16 +26,19 @@
         <p><strong>Price:</strong> {{ page.price }}</p>
 
       {% if page.availability %}
-          <div class="available-months">
+          {% assign available_months = page.availability | where_exp: "item", "item[1] == true" %}
+          {% if available_months.size > 0 %}
+            <div class="available-months">
               <strong>Available Months:</strong>
               <ul>
-                  {% for month, available in page.availability %}
-                      {% if available == true %}
-                          <li>{{ month | capitalize }}</li>  <!-- Capitalize month name for better display -->
-                      {% endif %}
-                  {% endfor %}
+                {% for month, available in page.availability %}
+                  {% if available == true %}
+                    <li>{{ month | capitalize }}</li>
+                  {% endif %}
+                {% endfor %}
               </ul>
-          </div>
+            </div>
+          {% endif %}
         {% endif %}
 
        
