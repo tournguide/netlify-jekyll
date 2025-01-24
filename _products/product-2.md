@@ -32,7 +32,7 @@ gallery:
 featured: true
 availability:
   february: true
-  january: true
+  january: false
 url: /product-2
 ---
 
