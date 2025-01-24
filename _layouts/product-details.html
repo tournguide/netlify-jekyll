@@ -27,7 +27,7 @@
 
 
 
-       {% if page.availability %}
+<!--        {% if page.availability %}
           <div class="available-months">
             <strong>Available Months:</strong>
             <ul>
@@ -45,6 +45,23 @@
             </ul>
           </div>
         {% endif %}
+ -->
+
+
+        {% if page.availability %}
+  <div class="available-months">
+    <strong>Available Months:</strong>
+    <ul>
+      {% for item in page.availability %}
+        {% assign month = item[0] %} <!-- First element is the month -->
+        {% assign status = item[1] %} <!-- Second element is the status (true/false) -->
+        {% if status == true %}
+          <li>{{ month | capitalize }}</li> <!-- Display only months with status true -->
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
 
 
 
