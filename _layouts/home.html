@@ -13,7 +13,7 @@
   <section class="featured-products">
     <!-- <h2>Products for {{ "now" | date: "%B" }}</h2> -->
     <h2>Products of Month</h2>
-    <div class="product-list">
+<!--     <div class="product-list">
         {% assign current_month = "now" | date: "%B" %}
         {% for product in site.products %}
             {% if product.months contains current_month %}
@@ -31,7 +31,28 @@
               </div>
             {% endif %}
         {% endfor %}
-    </div>
+    </div> -->
+
+
+
+    <div class="product-list">
+    {% assign current_month = "now" | date: "%B" %}  <!-- Get current month name (e.g., "January") -->
+
+    {% for product in site.products %}
+        {% if product.months[current_month] == true %}  <!-- Check if the current month is available for this product -->
+        
+        <div class="product-item">
+            <img src="{{ product.image | relative_url }}" alt="{{ product.title }}">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.description }}</p>
+            <p class="price">{{ product.price }}</p>
+            <a href="{{ product.url | relative_url }}">View Details</a>
+        </div>
+        
+        {% endif %}
+    {% endfor %}
+</div>
+
   </section>
 
 
