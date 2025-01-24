@@ -34,13 +34,25 @@
               {% for item in page.availability %}
                 {% assign month = item | split: true | first | split: false | first %}
                 {% assign status = item | split: month | last %}
-<!--                 <li>
-                  Month: {{ month | capitalize }} | Status: {{ status }}
-                </li> -->
-
-                      {% if {{ status }} == "true" %}
-                      <li>{{ month | capitalize }}</li>
+                    {% if status === "true" %}
+                      <li>1{{ month | capitalize }}</li>
                     {% endif %}
+
+
+                    {% if status == "true" %}
+                      <li>2{{ month | capitalize }}</li>
+                    {% endif %}
+
+
+                    {% if status == true %}
+                      <li>3{{ month | capitalize }}</li>
+                    {% endif %}
+
+
+                    {% if status == 'true' %}
+                      <li>4{{ month | capitalize }}</li>
+                    {% endif %}
+                
               {% endfor %}
             </ul>
           </div>
