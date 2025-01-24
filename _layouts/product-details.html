@@ -26,11 +26,21 @@
             </div>
         {% endif %}
         <p><strong>Price:</strong> {{ page.price }}</p>
-        {% for month, available in page.months %}
-          {% if available %}
-            <p>{{ month }} is available.</p>
-          {% endif %}
-        {% endfor %}
+       
+         <!-- Display the list of available months -->
+            <div class="available-months">
+                <strong>Available Months:</strong>
+                <ul>
+                    {% for month, available in product.months %}
+                        {% if available %}
+                            <li>{{ month }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+        
         <a href="/products/">Back to Product List</a>
         {% include footer.html %}
     </main>
