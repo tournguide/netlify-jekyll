@@ -5,7 +5,7 @@ price: '123'
 image: /images/dest1.jpg
 featured: true
 availability:
-  january: false
+  january: true
 url: /product-1
 ---
 
