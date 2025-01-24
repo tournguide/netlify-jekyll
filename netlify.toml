@@ -1,7 +1,7 @@
 [build]
   base = ""
   publish = "_site"
-  command = "bundle exec jekyll build && cp -r static/images _site"
+  command = "bundle exec jekyll build"
 
 [context.production.environment]
   RUBY_VERSION = "3.3.7"
