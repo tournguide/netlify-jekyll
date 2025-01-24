@@ -31,11 +31,11 @@
           <div class="available-months">
             <strong>Available Months:</strong>
             <ul>
-              {% for item in page.availability %}
-                {% assign month = item | split: true | first | split: false | first %}
+              {% for item | capitalize  in page.availability %}
+                {% assign month = item | split: TRUE | first | split: FALSE | first %}
                 {% assign status = item | split: month | last %}
 
-                    {% if status == true %}
+                    {% if status == TRUE %}
                       <li>{{ month | capitalize }}</li>
                     {% endif %}
                 
