@@ -30,9 +30,9 @@ gallery:
   - image: /images/dest2.jpg
   - image: /images/dest3.jpg
 featured: true
-months:
-  - january
-  - ''
+availability:
+  february: true
+  january: true
 url: /product-2
 ---
 
