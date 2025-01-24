@@ -44,7 +44,9 @@
                   Month: {{ month | capitalize }} | Status: {{ status }}
                 </li>
 
-                
+                {% if status == "true" %}
+                  <li>{{ month | capitalize }}</li>
+                {% endif %}
               {% endfor %}
             </ul>
           </div>
