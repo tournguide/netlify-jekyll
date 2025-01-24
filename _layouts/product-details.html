@@ -34,19 +34,22 @@
  -->
 
        {% if page.availability %}
-      <div class="available-months">
-        <strong>Available Months:</strong>
-        <ul>
-          {% for item in page.availability %}
-            {% assign month = item | split: true | first | split: false | first %}
-            {% assign status = item | split: month | last %}
-            {% if status == "true" %}
-              <li>{{ month | capitalize }}</li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
+          <div class="available-months">
+            <strong>Available Months:</strong>
+            <ul>
+              {% for item in page.availability %}
+                {% assign month = item | split: true | first | split: false | first %}
+                {% assign status = item | split: month | last %}
+                <li>
+                  Month: {{ month | capitalize }} | Status: {{ status }}
+                </li>
+
+                
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
 
 
 
