@@ -29,10 +29,10 @@ gallery:
   - image: /images/dest1.jpg
   - image: /images/dest2.jpg
   - image: /images/dest3.jpg
-featured: true
+featured: false
 availability:
-  february: true
-  january: false
+  february: false
+  january: true
 url: /product-2
 ---
 
