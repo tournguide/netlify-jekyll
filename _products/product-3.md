@@ -6,7 +6,7 @@ image: ''
 featured: true
 availability:
   february: false
-  january: true
+  january: false
   march: true
 url: /product-3
 ---
