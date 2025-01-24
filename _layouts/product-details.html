@@ -32,6 +32,7 @@
             <strong>Available Months:</strong>
             <ul>
               {% for item | capitalize  in page.availability %}
+                {{item}}
                 {% assign month = item | split: TRUE | first | split: FALSE | first %}
                 {% assign status = item | split: month | last %}
 
