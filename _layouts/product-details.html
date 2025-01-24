@@ -34,13 +34,8 @@
               {% for item in page.availability %}
                 {% assign month = item | split: true | first | split: false | first %}
                 {% assign status = item | split: month | last %}
-                    {% if status === "true" %}
-                      <li>1{{ month | capitalize }}</li>
-                    {% endif %}
-
-
                     {% if status == "true" %}
-                      <li>2{{ month | capitalize }}</li>
+                      <li>{{ month | capitalize }}</li>
                     {% endif %}
 
 
