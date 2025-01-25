@@ -1,10 +1,10 @@
-backend:
-  name: github
-  repo: tournguide/netlify-jekyll # Update this with your actual GitHub username and repo
-  branch: main # The branch where the content is located
-  oauth:
-    client_id: Ov23liG3Z1XAJPhn8YSs  # From the OAuth App you created
-    client_secret: f6e87feaf936c63b3b80314de4df9e288af5167c  # From the OAuth App you created
+# backend:
+#   name: github
+#   repo: tournguide/netlify-jekyll # Update this with your actual GitHub username and repo
+#   branch: main # The branch where the content is located
+#   oauth:
+#     client_id: Ov23liG3Z1XAJPhn8YSs  # From the OAuth App you created
+#     client_secret: f6e87feaf936c63b3b80314de4df9e288af5167c  # From the OAuth App you created
 
 media_folder: "static/images" # Media folder location for images
 public_folder: "/images" # Public folder for assets
