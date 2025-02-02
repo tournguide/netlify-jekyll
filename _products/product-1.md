@@ -1,7 +1,7 @@
 ---
 title: product-1
 description: product-1 desc
-price: '123'
+price: '456'
 image: /images/dest1.jpg
 featured: true
 availability:
