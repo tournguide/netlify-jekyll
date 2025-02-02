@@ -68,27 +68,29 @@
   </div> -->
 
 
-   <div class="product-list">
-        {% for product in site.products %}
-           {% for item in product.availability %}
-            {% assign month = item[0] %}
-            {% assign availability = item[1] %}
-            {% if availability == true %}
-              {% assign months_with_availability = months_with_availability | append: month | append: "," %}
-            {% endif %}
-          {% endfor %}
-      
-      
-          <div class="product-item" data-availability="{{ months_with_availability | downcase }}">
-                             
-            <img src="{{ product.image }}" alt="{{ product.title }}">
-            <h3>{{ product.title }}</h3>
-            <p>Price: ${{ product.price }}</p>
-            <p>Rating: {{ product.rating }} / 5</p>
-            <a href="{{ product.url }}">View Details</a>
-          </div>
-        {% endfor %}
-      </div>
+  <div class="product-list">
+  {% for product in site.products %}
+    {% assign allmonth = "" %}  <!-- Initialize the variable to store months -->
+
+    {% for item in product.availability %}
+      {% assign month = item[0] %}
+      {% assign availability = item[1] %}
+      {% if availability == true %}
+        {% if allmonth != "" %}
+          {% assign allmonth = allmonth | append: "," %}
+        {% endif %}
+        {% assign allmonth = allmonth | append: month %}
+      {% endif %}
+    {% endfor %}
+
+    <div class="product-item" data-availability="{{ allmonth | downcase }}">
+      <img src="{{ product.image }}" alt="{{ product.title }}">
+      <h3>{{ product.title }}</h3>
+      <p>Price: ${{ product.price }}</p>
+      <p>Rating: {{ product.rating }} / 5</p>
+      <a href="{{ product.url }}">View Details</a>
+    </div>
+  {% endfor %}
 </div>
 
 
