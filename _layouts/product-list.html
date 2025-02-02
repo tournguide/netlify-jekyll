@@ -58,5 +58,60 @@
 
   {% include footer.html %}
   </main>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const priceFilter = document.getElementById('price-filter');
+        const monthFilter = document.getElementById('month-filter');
+        const ratingFilter = document.getElementById('rating-filter');
+    
+        function filterProducts() {
+          const priceValue = priceFilter.value;
+          const monthValue = monthFilter.value;
+          const ratingValue = ratingFilter.value;
+    
+          // Loop through all product items
+          const products = document.querySelectorAll('.product-item');
+          products.forEach(product => {
+            const price = parseInt(product.getAttribute('data-price'));
+            const rating = parseInt(product.getAttribute('data-rating'));
+            const availableMonths = product.getAttribute('data-availability').split(',');
+    
+            let showProduct = true;
+    
+            // Filter by price
+            if (priceValue !== 'all') {
+              if (priceValue === 'low-high' && price > 100) showProduct = false;
+              if (priceValue === 'high-low' && price < 100) showProduct = false;
+            }
+    
+            // Filter by month
+            if (monthValue !== 'all' && !availableMonths.includes(monthValue)) {
+              showProduct = false;
+            }
+    
+            // Filter by rating
+            if (ratingValue !== 'all' && rating < parseInt(ratingValue)) {
+              showProduct = false;
+            }
+    
+            if (showProduct) {
+              product.style.display = 'block';
+            } else {
+              product.style.display = 'none';
+            }
+          });
+        }
+    
+        // Add event listeners for filter changes
+        priceFilter.addEventListener('change', filterProducts);
+        monthFilter.addEventListener('change', filterProducts);
+        ratingFilter.addEventListener('change', filterProducts);
+    
+        // Initialize filter on page load
+        filterProducts();
+      });
+    </script>
+
 </body>
 </html>
