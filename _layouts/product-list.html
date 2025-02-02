@@ -113,6 +113,22 @@
         {% endfor %}
       </div>
 
+
+      <div class="product-list">
+  {% for product in site.pages %}
+    {% if product.url contains "/products/" %}
+      <div class="product-item" data-availability="{% for i in (0..11) %}{% if product.availability[month_names[i]] == true %}{{ month_names[i] | downcase }},{% endif %}{% endfor %}">
+        <img src="{{ product.image }}" alt="{{ product.title }}">
+        <h3>{{ product.title }}</h3>
+        <p>Price: ${{ product.price }}</p>
+        <p>Rating: {{ product.rating }} / 5</p>
+        <a href="{{ product.url }}">View Details</a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+
   {% include footer.html %}
   </main>
 
