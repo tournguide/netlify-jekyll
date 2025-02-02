@@ -83,7 +83,7 @@
       {% endif %}
     {% endfor %}
 
-    <div class="product-item" data-availability="{{ allmonth | downcase }}">
+    <div class="product-item" data-price="{{ product.price }}"  data-availability="{{ allmonth | downcase }}">
       <img src="{{ product.image }}" alt="{{ product.title }}">
       <h3>{{ product.title }}</h3>
       <p>Price: ${{ product.price }}</p>
