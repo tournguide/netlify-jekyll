@@ -3,7 +3,7 @@ title: Product-4
 description: Product-4 desc
 price: '123'
 image: /images/gallery-5.jpg
-featured: true
+featured: false
 availability:
   february: true
   january: true
