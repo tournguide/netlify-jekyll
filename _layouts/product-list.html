@@ -1,61 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
 <body>
-    <main>
-  {% include header.html %}
-  <h1>All Products</h1>
+  <main>
+    {% include header.html %}
+    <h1>All Products</h1>
 
 
 
-      <div class="filters">
-  <!-- Price Filter -->
-  <div class="filter">
-    <label for="price-filter">Price</label>
-    <select id="price-filter">
-      <option value="all">All</option>
-      <option value="low-high">Low to High</option>
-      <option value="high-low">High to Low</option>
-    </select>
-  </div>
+    <div class="filters">
+      <!-- Price Filter -->
+      <div class="filter">
+        <label for="price-filter">Price</label>
+        <select id="price-filter">
+          <option value="all">All</option>
+          <option value="low-high">Low to High</option>
+          <option value="high-low">High to Low</option>
+        </select>
+      </div>
 
-  <!-- Month Filter -->
-  <div class="filter">
-  <label for="month-filter">Month</label>
-  <select id="month-filter">
-    <option value="all">All</option>
-    {% assign month_names = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
-    
-    {% for month in month_names %}
-      <option value="{{ month | downcase }}">{{ month }}</option>
-    {% endfor %}
-  </select>
-</div>
+      <!-- Month Filter -->
+      <div class="filter">
+        <label for="month-filter">Month</label>
+        <select id="month-filter">
+          <option value="all">All</option>
+          {% assign month_names =
+          "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
 
-
-  <!-- Rating Filter -->
-  <div class="filter">
-    <label for="rating-filter">Rating</label>
-    <select id="rating-filter">
-      <option value="all">All</option>
-      <option value="1">1 Star</option>
-      <option value="2">2 Stars</option>
-      <option value="3">3 Stars</option>
-      <option value="4">4 Stars</option>
-      <option value="5">5 Stars</option>
-    </select>
-  </div>
-</div>
+          {% for month in month_names %}
+          <option value="{{ month | downcase }}">{{ month }}</option>
+          {% endfor %}
+        </select>
+      </div>
 
 
 
 
 
-      
-<!--   <div class="product-list">
+    <!--   <div class="product-list">
     {% for product in site.products %}
     <div class="product-item">
         <a href="{{ product.url }}">
@@ -68,88 +55,81 @@
   </div> -->
 
 
-  <div class="product-list">
-  {% for product in site.products %}
-    {% assign allmonth = "" %}  <!-- Initialize the variable to store months -->
+    <div class="product-list">
+      {% for product in site.products %}
+      {% assign allmonth = "" %} <!-- Initialize the variable to store months -->
 
-    {% for item in product.availability %}
+      {% for item in product.availability %}
       {% assign month = item[0] %}
       {% assign availability = item[1] %}
       {% if availability == true %}
-        {% if allmonth != "" %}
-          {% assign allmonth = allmonth | append: "," %}
-        {% endif %}
-        {% assign allmonth = allmonth | append: month %}
+      {% if allmonth != "" %}
+      {% assign allmonth = allmonth | append: "," %}
       {% endif %}
-    {% endfor %}
+      {% assign allmonth = allmonth | append: month %}
+      {% endif %}
+      {% endfor %}
 
-    <div class="product-item" data-price="{{ product.price }}"  data-availability="{{ allmonth | downcase }}">
-      <img src="{{ product.image }}" alt="{{ product.title }}">
-      <h3>{{ product.title }}</h3>
-      <p>Price: ${{ product.price }}</p>
-      <p>Rating: {{ product.rating }} / 5</p>
-      <a href="{{ product.url }}">View Details</a>
+      <div class="product-item" data-price="{{ product.price }}" data-availability="{{ allmonth | downcase }}">
+        <img src="{{ product.image }}" alt="{{ product.title }}">
+        <h3>{{ product.title }}</h3>
+        <p>Price: ${{ product.price }}</p>
+        <a href="{{ product.url }}">View Details</a>
+      </div>
+      {% endfor %}
     </div>
-  {% endfor %}
-</div>
 
 
-  {% include footer.html %}
+    {% include footer.html %}
   </main>
 
   <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const priceFilter = document.getElementById('price-filter');
-        const monthFilter = document.getElementById('month-filter');
-        const ratingFilter = document.getElementById('rating-filter');
-    
-        function filterProducts() {
-          const priceValue = priceFilter.value;
-          const monthValue = monthFilter.value;
-          const ratingValue = ratingFilter.value;
-    
-          // Loop through all product items
-          const products = document.querySelectorAll('.product-item');
-          products.forEach(product => {
-            const price = parseInt(product.getAttribute('data-price'));
-            const rating = parseInt(product.getAttribute('data-rating'));
-            const availableMonths = product.getAttribute('data-availability').split(',');
-    
-            let showProduct = true;
-    
-            // Filter by price
-            if (priceValue !== 'all') {
-              if (priceValue === 'low-high' && price > 100) showProduct = false;
-              if (priceValue === 'high-low' && price < 100) showProduct = false;
-            }
-    
-            // Filter by month
-            if (monthValue !== 'all' && !availableMonths.includes(monthValue)) {
-              showProduct = false;
-            }
-    
-            // Filter by rating
-            if (ratingValue !== 'all' && rating < parseInt(ratingValue)) {
-              showProduct = false;
-            }
-    
-            if (showProduct) {
-              product.style.display = 'block';
-            } else {
-              product.style.display = 'none';
-            }
-          });
-        }
-    
-        // Add event listeners for filter changes
-        priceFilter.addEventListener('change', filterProducts);
-        monthFilter.addEventListener('change', filterProducts);
-        ratingFilter.addEventListener('change', filterProducts);
-    
-        // // Initialize filter on page load
-        // filterProducts();
-      });
-    </script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const priceFilter = document.getElementById('price-filter');
+      const monthFilter = document.getElementById('month-filter');
+
+      function filterProducts() {
+        const priceValue = priceFilter.value;
+        const monthValue = monthFilter.value;
+        const ratingValue = ratingFilter.value;
+
+        // Loop through all product items
+        const products = document.querySelectorAll('.product-item');
+        products.forEach(product => {
+          const price = parseInt(product.getAttribute('data-price'));
+          const availableMonths = product.getAttribute('data-availability').split(',');
+
+          let showProduct = true;
+
+          // Filter by price
+          if (priceValue !== 'all') {
+            if (priceValue === 'low-high' && price > 100) showProduct = false;
+            if (priceValue === 'high-low' && price < 100) showProduct = false;
+          }
+
+          // Filter by month
+          if (monthValue !== 'all' && !availableMonths.includes(monthValue)) {
+            showProduct = false;
+          }
+
+          if (showProduct) {
+            // product.style.display = 'block';
+            product.removeAttribute("style");
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      }
+
+      // Add event listeners for filter changes
+      priceFilter.addEventListener('change', filterProducts);
+      monthFilter.addEventListener('change', filterProducts);
+
+      // // Initialize filter on page load
+      // filterProducts();
+    });
+  </script>
 
 </body>
+
 </html>
