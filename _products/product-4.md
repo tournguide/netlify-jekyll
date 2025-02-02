@@ -1,7 +1,7 @@
 ---
 title: Product-4
 description: Product-4 desc
-price: '123'
+price: '33'
 image: /images/gallery-5.jpg
 featured: false
 availability:
