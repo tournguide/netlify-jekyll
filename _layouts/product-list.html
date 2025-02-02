@@ -81,7 +81,7 @@
           {% endfor %}
 
             <!-- Remove the trailing comma -->
-          {% assign all_months = all_months | slice: 0, -1 %}
+          {% assign all_months = all_months | split: "," | slice: 0, -1 | join: "," %}
         <div class="product-item" data-availability="{{ all_months | downcase }}">
                              
             <img src="{{ product.image }}" alt="{{ product.title }}">
