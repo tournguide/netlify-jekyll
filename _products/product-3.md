@@ -1,7 +1,7 @@
 ---
 title: Product-3
 description: product-3 desc
-price: '123'
+price: '789'
 image: ''
 featured: true
 availability:
