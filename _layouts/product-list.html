@@ -25,7 +25,7 @@
 
 
       
-  <div class="product-list">
+<!--   <div class="product-list">
     {% for product in site.products %}
     <div class="product-item">
         <a href="{{ product.url }}">
@@ -35,7 +35,27 @@
         </a>
     </div>
     {% endfor %}
-</div>
+  </div> -->
+
+
+  
+      <div class="product-list">
+        {% for product in site.pages %}
+          {% if product.url contains "/products/" %}
+            <div class="product-item" 
+                 data-price="{{ product.price }}"
+                 data-rating="{{ product.rating }}"
+                 data-availability="{{ product.availability | map: 'true' | join: ',' }}">
+              <img src="{{ product.image }}" alt="{{ product.title }}">
+              <h3>{{ product.title }}</h3>
+              <p>Price: ${{ product.price }}</p>
+              <p>Rating: {{ product.rating }} / 5</p>
+              <a href="{{ product.url }}">View Details</a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
   {% include footer.html %}
   </main>
 </body>
