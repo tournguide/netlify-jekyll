@@ -41,25 +41,36 @@
         {% endif %} 
  -->
 
-
-        <div class="product-list">
-              {% for product in site.products %}
-                <div class="product-item" 
-                     data-availability="{% for item in product.availability %}
-                                          {% assign month = item[0] %}
-                                          {% assign availability = item[1] %}
-                                          {% if availability == true %}
-                                            {{ month | downcase }},
-                                          {% endif %}
-                                        {% endfor %}">
-                  <img src="{{ product.image }}" alt="{{ product.title }}">
-                  <h3>{{ product.title }}</h3>
-                  <p>Price: ${{ product.price }}</p>
-                  <p>Rating: {{ product.rating }} / 5</p>
-                  <a href="{{ product.url }}">View Details</a>
-                </div>
-              {% endfor %}
+{% if page.availability %}
+          {% assign has_available_month = false %} <!-- Initialize a flag -->
+        
+          <!-- Check if at least one month is available -->
+          {% for item in page.availability %}
+            {% if item[1] == true %}
+              {% assign has_available_month = true %}
+            {% endif %}
+          {% endfor %}
+        
+          <!-- Only render the div if at least one month is available -->
+          {% if has_available_month %}
+            <div class="available-months">
+              <strong>Available Months:</strong>
+              <ul>
+                {% for item in page.availability %}
+                  {% assign month = item[0] %} <!-- First element is the month -->
+                  {% assign availability = item[1] %} <!-- Second element is the availability (true/false) -->
+                  {% if availability == true %}
+                    <li>{{ month | capitalize }}</li> <!-- Display only months with availability true -->
+                  {% endif %}
+                {% endfor %}
+              </ul>
             </div>
+          {% endif %}
+        {% endif %}
+
+
+        
+       
 
 
         
