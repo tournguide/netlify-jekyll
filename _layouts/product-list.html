@@ -70,15 +70,18 @@
 
    <div class="product-list">
         {% for product in site.products %}
-          <div class="product-item" data-availability="
-             {% for item in product.availability %}
-                  {% assign month = item[0] %} <!-- First element is the month -->
-                  {% assign availability = item[1] %} <!-- Second element is the availability (true/false) -->
-                  {% if availability == true %}
-                    {{ month }}
-                  {% endif %}
-                {% endfor %}
-            ">
+           {% assign all_months = "" %} <!-- Initialize an empty string to store months -->
+          
+          {% for item in product.availability %}
+            {% assign month = item[0] %} <!-- First element is the month -->
+            {% assign availability = item[1] %} <!-- Second element is the availability (true/false) -->
+            {% if availability == true %}
+              {% assign all_months = all_months | append: month | append: "," %}
+            {% endif %}
+          {% endfor %}
+
+     
+        <div class="product-item" data-availability="{{ all_months | downcase }}">
                              
             <img src="{{ product.image }}" alt="{{ product.title }}">
             <h3>{{ product.title }}</h3>
