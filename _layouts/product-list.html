@@ -7,8 +7,8 @@
 </head>
 
 <body>
+  {% include header.html %}
   <main>
-    {% include header.html %}
     <h1>All Products</h1>
 
 
@@ -42,7 +42,7 @@
 
 
 
-    <!--   <div class="product-list">
+  <!-- <div class="product-list">
     {% for product in site.products %}
     <div class="product-item">
         <a href="{{ product.url }}">
@@ -52,12 +52,12 @@
         </a>
     </div>
     {% endfor %}
-  </div> -->
+  </div>  -->
 
 
     <div class="product-list">
       {% for product in site.products %}
-      {% assign allmonth = "" %} <!-- Initialize the variable to store months -->
+      {% assign allmonth = "" %} 
 
       {% for item in product.availability %}
       {% assign month = item[0] %}
@@ -80,8 +80,8 @@
     </div>
 
 
-    {% include footer.html %}
   </main>
+  {% include footer.html %}
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
