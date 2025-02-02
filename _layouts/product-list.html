@@ -70,24 +70,21 @@
 
    <div class="product-list">
         {% for product in site.products %}
-          <div class="product-item" >
+          <div class="product-item" data-availability="
+             {% for item in product.availability %}
+                  {% assign month = item[0] %} <!-- First element is the month -->
+                  {% assign availability = item[1] %} <!-- Second element is the availability (true/false) -->
+                  {% if availability == true %}
+                    {{ month }}
+                  {% endif %}
+                {% endfor %}
+            ">
                              
             <img src="{{ product.image }}" alt="{{ product.title }}">
             <h3>{{ product.title }}</h3>
             <p>Price: ${{ product.price }}</p>
             <p>Rating: {{ product.rating }} / 5</p>
             <a href="{{ product.url }}">View Details</a>
-
-            <ul>
-                {% for item in product.availability %}
-                  {{product.availability}}
-                  {% assign month = item[0] %} <!-- First element is the month -->
-                  {% assign availability = item[1] %} <!-- Second element is the availability (true/false) -->
-                  {% if availability == true %}
-                    <li>{{ month | capitalize }}</li> <!-- Display only months with availability true -->
-                  {% endif %}
-                {% endfor %}
-              </ul>
           </div>
         {% endfor %}
       </div>
