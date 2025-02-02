@@ -76,7 +76,7 @@
                  data-price="{{ product.price }}"
                  data-rating="{{ product.rating }}"
                  data-availability="
-               {% for item in page.availability %}
+               {% for item in product.availability %}
                   {% assign month = item[0] %} <!-- First element is the month -->
                   {% assign availability = item[1] %} <!-- Second element is the availability (true/false) -->
                   {% if availability == true %}
