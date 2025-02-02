@@ -78,8 +78,6 @@
             {% endif %}
           {% endfor %}
       
-          <!-- Remove trailing comma by using 'split' and 'join' to clean up the string -->
-          {% assign months_with_availability = months_with_availability | split: "," | slice: 0, -1 | join: "," %}
       
           <div class="product-item" data-availability="{{ months_with_availability | downcase }}">
                              
