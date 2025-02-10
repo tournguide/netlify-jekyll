@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main 
+  branch: newtest 
 
 media_folder: "static/images" # Media folder location for images
 public_folder: "/images" # Public folder for assets
