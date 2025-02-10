@@ -17,6 +17,6 @@ availability:
   november: false
   october: false
   september: false
-url: /product-5
+url: /product-6
 ---
 
