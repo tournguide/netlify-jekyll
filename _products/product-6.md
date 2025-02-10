@@ -1,5 +1,5 @@
 ---
-title: product 66
+title: product 6888
 description: product 6 desc
 price: '85'
 image: /images/gallery-4.jpg
