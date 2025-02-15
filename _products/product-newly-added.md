@@ -1,5 +1,5 @@
 ---
-title: product newly added
+title: product newly 2025
 description: product newly added
 price: "3333"
 image: /images/dest3.jpg
